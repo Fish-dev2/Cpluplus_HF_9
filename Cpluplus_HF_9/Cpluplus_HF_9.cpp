@@ -1,11 +1,11 @@
 ﻿//JI9J9A Füzi Bálint FELADAT9V1
-#include "CWageEmployee.h"
-#include "CSalesEmployee.h"
-#include "CManager.h"
-
 #include <iostream>
 #include <limits>
 #include <vector>
+
+#include "CWageEmployee.h"
+#include "CSalesEmployee.h"
+#include "CManager.h"
 
 using namespace std;
 
@@ -47,6 +47,19 @@ void createEmployee(EmployeeList& empList) {
     emp->Input();
     empList.push_back(emp);
 }
+void listEmployees(const EmployeeList& empList) {
+    if (empList.empty()) {
+        cout << "Meg nem adtal hozza employeet" << endl;
+        return;
+    }
+
+    cout << "Employee lista:" << endl;
+    for (size_t i = 0; i < empList.size(); ++i) {
+        cout << "Employee " << i + 1 << ":" << endl;
+        empList[i]->Display();
+        cout << endl;
+    }
+}
 
 void displayMenu() {
     cout << "=== Menu ===" << endl;
@@ -79,6 +92,15 @@ int main()
         else
         {
             cout << menuOptions[choice - 1] << "t valasztottad" << endl;
+            switch (choice)
+            {
+            case 1:
+                createEmployee(empList);
+                break;
+            case 2:
+                listEmployees(empList);
+                break;
+            }
 
         }
         cout << endl;
