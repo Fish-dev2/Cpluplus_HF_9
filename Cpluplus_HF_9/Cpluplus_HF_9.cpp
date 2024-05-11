@@ -2,6 +2,7 @@
 #include <iostream>
 #include <limits>
 #include <vector>
+#include <algorithm>
 
 #include "CWageEmployee.h"
 #include "CSalesEmployee.h"
@@ -50,7 +51,7 @@ void createEmployee(EmployeeList& empList) {
 }
 void listEmployees(const EmployeeList& empList) {
     if (empList.empty()) {
-        cout << "Meg nem adtal hozza employeet" << endl;
+        cout << "Nem hoztal letre meg egy employeet se." << endl;
         return;
     }
 
@@ -66,30 +67,63 @@ void listEmployees(const EmployeeList& empList) {
 }
 void payByName(const EmployeeList& empList) {
     if (empList.empty()) {
-        cout << "Nem vittel meg fel employee adatot." << endl;
+        cout << "Nem hoztal letre meg egy employeet se." << endl;
         return;
     }
 
     string searchName;
-    cout << "Enter the name of the employee: ";
+    cout << "Add meg a keresett employee nevet: ";
     cin >> searchName;
 
-    bool found = false;
-    for (const auto& emp : empList) {
-        if (emp->getName() == searchName) {
-            cout << "Pay for employee " << searchName << ": $" << emp->ComputePay() << endl;
-            found = true;
-            break;
-        }
+    size_t i = 0;
+    while (i < empList.size() && empList[i]->getName() != searchName)
+    {
+        ++i;
     }
-
-    if (!found) {
-        cout << "Employee with name " << searchName << " not found." << endl;
+    if (i < empList.size())
+    {
+        cout << searchName << " fizetese: " << empList[i]->ComputePay() << endl;
+    }
+    else
+    {
+        cout << searchName << " nevu employee nincs a listaban." << endl;
     }
 }
 void listPays(const EmployeeList& empList, bool descending) {
+    if (empList.empty()) {
+        cout << "Nem hoztal letre meg egy employeet se." << endl;
+        return;
+    }
+
+
+    vector<CEmployee*> sorted;
+    size_t smallestIndex;
+    float paySum = 0.0f;
+    for (size_t i = 0; i < empList.size(); ++i)
+    {
+        smallestIndex = i;
+        for (size_t j = i; j < empList.size(); j++)
+        {
+            if (empList[j]->ComputePay() < empList[smallestIndex]->ComputePay())
+            {
+                smallestIndex = j;
+            }
+        }
+        sorted.push_back(empList[smallestIndex]);
+        paySum += empList[smallestIndex]->ComputePay();
+    }
+    float avg = paySum / sorted.size();
+
+    if (descending)
+    {
+        reverse(sorted.begin(), sorted.end());
+    }
+    listEmployees(sorted);
+    cout << "Atlag fizetes: " << avg << endl;
+
 
 }
+
 
 void displayMenu() {
     cout << "=== Menu ===" << endl;
@@ -102,6 +136,22 @@ void displayMenu() {
 int main()
 {
     EmployeeList empList;
+    //CWageEmployee wagie = CWageEmployee();
+    //wagie.setName("Lajos");
+    //wagie.setHours(100);
+    //wagie.setWage(50);
+    //CWageEmployee wagie2 = CWageEmployee();
+    //wagie2.setName("Géza");
+    //wagie2.setHours(101);
+    //wagie2.setWage(50);
+    //CWageEmployee wagie3 = CWageEmployee();
+    //wagie3.setName("Lajos");
+    //wagie3.setHours(102);
+    //wagie3.setWage(50);
+    //empList.push_back(&wagie);
+    //empList.push_back(&wagie2);
+    //empList.push_back(&wagie3);
+
     int choice;
     bool validChoice = true;
 
@@ -132,6 +182,13 @@ int main()
                 break;
             case 3:
                 payByName(empList);
+                break;
+            case 4:
+                listPays(empList, true);
+                break;
+            case 5:
+                listPays(empList, false);
+                break;
             }
 
         }
@@ -143,6 +200,8 @@ int main()
 
     return 0;
 }
+
+
 
 
 //Osztályok:
