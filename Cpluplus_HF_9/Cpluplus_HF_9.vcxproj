@@ -127,7 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CEmployee.cpp" />
     <ClCompile Include="Cpluplus_HF_9.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CEmployee.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

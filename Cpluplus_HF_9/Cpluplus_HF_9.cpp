@@ -13,7 +13,6 @@ void displayMenu() {
     cout << "=== Menu ===" << endl;
     for (int i = 0; i < optionSize; ++i) {
         cout << i + 1 << ". " << menuOptions[i] << endl;
-
     }
     cout << "============" << endl;
 }
