@@ -1,5 +1,4 @@
-﻿
-//JI9J9A Füzi Bálint FELADAT9V1
+﻿//JI9J9A Füzi Bálint FELADAT9V1
 #include <iostream>
 #include <limits>
 #define MAXTEST = 10;

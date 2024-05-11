@@ -1,3 +1,4 @@
+//JI9J9A Füzi Bálint FELADAT9V1
 #include "CEmployee.h"
 #include <iostream>
 

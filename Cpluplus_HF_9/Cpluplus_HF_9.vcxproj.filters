@@ -21,9 +21,21 @@
     <ClCompile Include="CEmployee.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CWageEmployee.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CSalesEmployee.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CEmployee.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CWageEmployee.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CSalesEmployee.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

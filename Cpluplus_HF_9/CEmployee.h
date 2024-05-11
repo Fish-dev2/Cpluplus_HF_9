@@ -1,5 +1,5 @@
+//JI9J9A Füzi Bálint FELADAT9V1
 #pragma once
-
 #include <string>
 
 class CEmployee {
