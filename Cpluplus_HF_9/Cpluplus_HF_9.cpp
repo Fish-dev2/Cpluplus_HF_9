@@ -1,12 +1,52 @@
 ﻿//JI9J9A Füzi Bálint FELADAT9V1
+#include "CWageEmployee.h"
+#include "CSalesEmployee.h"
+#include "CManager.h"
+
 #include <iostream>
 #include <limits>
-#define MAXTEST = 10;
+#include <vector>
+
 using namespace std;
+
+
 const string menuOptions[] = { "Bevitel", "Lista", "Fizetes nev alapjan", "Fizetes csokkeno", "Fizetes novekvo", "Kilepes"};
 const int optionSize = 6;
 
 
+using EmployeeList = vector<CEmployee*>;
+
+void createEmployee(EmployeeList& empList) {
+    int choice;
+    cout << "Valaszd ki milyen employeet akarsz:" << endl;
+    cout << "1. Wage Employee" << endl;
+    cout << "2. Sales Employee" << endl;
+    cout << "3. Manager" << endl;
+    cout << "Ird be a menupont szamat: ";
+    cin >> choice;
+
+    CEmployee* emp = nullptr;
+    switch (choice) {
+        case 1: {
+            emp = new CWageEmployee();
+            break;
+        }
+        case 2: {
+            emp = new CSalesEmployee();
+            break;
+        }
+        case 3: {
+            emp = new CManager();
+            break;
+        }
+        default: {
+            cout << "Hibas valasztas. Letrehozas megszakitva." << endl;
+            return;
+        }
+    }
+    emp->Input();
+    empList.push_back(emp);
+}
 
 void displayMenu() {
     cout << "=== Menu ===" << endl;
@@ -18,6 +58,7 @@ void displayMenu() {
 
 int main()
 {
+    EmployeeList empList;
     int choice;
     bool validChoice = true;
 
@@ -38,6 +79,7 @@ int main()
         else
         {
             cout << menuOptions[choice - 1] << "t valasztottad" << endl;
+
         }
         cout << endl;
     } while (choice != optionSize);

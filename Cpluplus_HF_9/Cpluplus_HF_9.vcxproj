@@ -128,12 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CEmployee.cpp" />
+    <ClCompile Include="CManager.cpp" />
     <ClCompile Include="Cpluplus_HF_9.cpp" />
     <ClCompile Include="CSalesEmployee.cpp" />
     <ClCompile Include="CWageEmployee.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CEmployee.h" />
+    <ClInclude Include="CManager.h" />
     <ClInclude Include="CSalesEmployee.h" />
     <ClInclude Include="CWageEmployee.h" />
   </ItemGroup>
