@@ -6,6 +6,7 @@
 #include "CWageEmployee.h"
 #include "CSalesEmployee.h"
 #include "CManager.h"
+#include "CEmployee.h"
 
 using namespace std;
 
