@@ -6,7 +6,7 @@ using namespace std;
 
 void CManager::Input() {
     CEmployee::Input();
-    cout << "Enter weekly salary: ";
+    cout << "Add meg a heti fizetest: ";
     cin >> m_fWeeklySalary;
 }
 
@@ -16,5 +16,5 @@ float CManager::ComputePay() {
 
 void CManager::Display() {
     CEmployee::Display();
-    cout << "Weekly Salary: " << m_fWeeklySalary << endl;
+    cout << "Heti fizetes: " << m_fWeeklySalary << endl;
 }

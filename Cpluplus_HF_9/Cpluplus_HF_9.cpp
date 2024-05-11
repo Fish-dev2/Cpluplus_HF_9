@@ -56,6 +56,7 @@ void listEmployees(const EmployeeList& empList) {
 
     cout << "Employee lista:" << endl;
     for (size_t i = 0; i < empList.size(); ++i) {
+        cout << "\t";
         cout << "Employee " << i + 1 << ":" << endl;
         empList[i]->Display();
         cout << endl;

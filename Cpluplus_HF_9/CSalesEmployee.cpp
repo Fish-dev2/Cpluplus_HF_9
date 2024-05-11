@@ -6,9 +6,9 @@ using namespace std;
 
 void CSalesEmployee::Input() {
     CWageEmployee::Input();
-    cout << "Enter sales made: ";
+    cout << "Add meg az eladasok szamat: ";
     cin >> m_fSalesMade;
-    cout << "Enter commission: ";
+    cout << "Add meg a jutalekot: ";
     cin >> m_fCommission;
 }
 
@@ -18,6 +18,6 @@ float CSalesEmployee::ComputePay() {
 
 void CSalesEmployee::Display() {
     CWageEmployee::Display();
-    cout << "Sales Made: " << m_fSalesMade << endl;
-    cout << "Commission: " << m_fCommission << endl;
+    cout << "Eladasok: " << m_fSalesMade << endl;
+    cout << "Jutalek: " << m_fCommission << endl;
 }
