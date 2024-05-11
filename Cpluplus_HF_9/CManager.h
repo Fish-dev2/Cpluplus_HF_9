@@ -7,6 +7,8 @@ public:
     void Input() override;
     float ComputePay() override;
     void Display() override;
+    float getWeeklySalary() const;
+    void setWeeklySalary(const float weeklySalary);
 
 private:
     float m_fWeeklySalary;

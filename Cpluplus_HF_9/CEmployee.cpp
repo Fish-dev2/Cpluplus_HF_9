@@ -16,3 +16,11 @@ float CEmployee::ComputePay() {
 void CEmployee::Display() {
     cout << "Nev: " << m_szName << endl;
 }
+
+std::string CEmployee::getName() const {
+    return m_szName;
+}
+
+void CEmployee::setName(const std::string& name) {
+    m_szName = name;
+}

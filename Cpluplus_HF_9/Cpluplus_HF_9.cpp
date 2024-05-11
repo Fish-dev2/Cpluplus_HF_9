@@ -55,12 +55,40 @@ void listEmployees(const EmployeeList& empList) {
     }
 
     cout << "Employee lista:" << endl;
+    cout << endl;
     for (size_t i = 0; i < empList.size(); ++i) {
         cout << "\t";
         cout << "Employee " << i + 1 << ":" << endl;
         empList[i]->Display();
+        cout << "Fizetes:" << empList[i]->ComputePay() << endl;
         cout << endl;
     }
+}
+void payByName(const EmployeeList& empList) {
+    if (empList.empty()) {
+        cout << "Nem vittel meg fel employee adatot." << endl;
+        return;
+    }
+
+    string searchName;
+    cout << "Enter the name of the employee: ";
+    cin >> searchName;
+
+    bool found = false;
+    for (const auto& emp : empList) {
+        if (emp->getName() == searchName) {
+            cout << "Pay for employee " << searchName << ": $" << emp->ComputePay() << endl;
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        cout << "Employee with name " << searchName << " not found." << endl;
+    }
+}
+void listPays(const EmployeeList& empList, bool descending) {
+
 }
 
 void displayMenu() {
@@ -102,6 +130,8 @@ int main()
             case 2:
                 listEmployees(empList);
                 break;
+            case 3:
+                payByName(empList);
             }
 
         }

@@ -8,6 +8,10 @@ public:
     void Input() override;
     float ComputePay() override;
     void Display() override;
+    void setWage(const float wage);
+    float getWage() const;
+    void setHours(const float hours);
+    float getHours() const;
 
 protected:
     float m_fWage;

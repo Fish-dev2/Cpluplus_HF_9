@@ -18,3 +18,13 @@ void CManager::Display() {
     CEmployee::Display();
     cout << "Heti fizetes: " << m_fWeeklySalary << endl;
 }
+
+float CManager::getWeeklySalary() const
+{
+    return m_fWeeklySalary;
+}
+
+void CManager::setWeeklySalary(const float weeklySalary)
+{
+    m_fWeeklySalary = weeklySalary;
+}

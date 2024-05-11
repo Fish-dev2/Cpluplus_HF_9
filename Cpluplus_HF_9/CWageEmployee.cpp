@@ -22,3 +22,23 @@ void CWageEmployee::Display() {
     cout << "Oraber: " << m_fWage << endl;
     cout << "Ledolgozott orak: " << m_fHours << endl;
 }
+
+void CWageEmployee::setWage(const float wage)
+{
+    m_fWage = wage;
+}
+
+float CWageEmployee::getWage() const
+{
+    return m_fWage;
+}
+
+void CWageEmployee::setHours(const float hours)
+{
+    m_fHours = hours;
+}
+
+float CWageEmployee::getHours() const
+{
+    return m_fHours;
+}

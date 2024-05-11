@@ -21,3 +21,23 @@ void CSalesEmployee::Display() {
     cout << "Eladasok: " << m_fSalesMade << endl;
     cout << "Jutalek: " << m_fCommission << endl;
 }
+
+void CSalesEmployee::setSalesMade(const float salesMade)
+{
+    m_fSalesMade = salesMade;
+}
+
+float CSalesEmployee::getSalesMade() const
+{
+    return m_fSalesMade;
+}
+
+void CSalesEmployee::setCommission(const float commission)
+{
+    m_fCommission = commission;
+}
+
+float CSalesEmployee::getCommission() const
+{
+    return m_fCommission;
+}
