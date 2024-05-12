@@ -24,7 +24,7 @@
     <ClCompile Include="CWageEmployee.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CSalesEmployee.cpp">
+    <ClCompile Include="CSalesPerson.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CManager.cpp">
@@ -38,7 +38,7 @@
     <ClInclude Include="CWageEmployee.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CSalesEmployee.h">
+    <ClInclude Include="CSalesPerson.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CManager.h">

@@ -5,7 +5,7 @@
 #include <algorithm>
 
 #include "CWageEmployee.h"
-#include "CSalesEmployee.h"
+#include "CSalesPerson.h"
 #include "CManager.h"
 #include "CEmployee.h"
 
@@ -40,7 +40,7 @@ void createEmployee(EmployeeList& empList) {
             break;
         }
         case 2: {
-            emp = new CSalesEmployee();
+            emp = new CSalesPerson();
             break;
         }
         case 3: {
@@ -105,22 +105,22 @@ void listPays(const EmployeeList& empList, bool descending) {
     }
 
 
-    vector<CEmployee*> sorted;
-    size_t smallestIndex;
+    vector<CEmployee*> sorted = empList;
     float paySum = 0.0f;
-    for (size_t i = 0; i < empList.size(); ++i)
-    {
-        smallestIndex = i;
-        for (size_t j = i; j < empList.size(); j++)
-        {
-            if (empList[j]->ComputePay() < empList[smallestIndex]->ComputePay())
-            {
+
+    for (size_t i = 0; i < sorted.size() - 1; ++i) {
+        size_t smallestIndex = i;
+        for (size_t j = i + 1; j < sorted.size(); ++j) {
+            if (sorted[j]->ComputePay() < sorted[smallestIndex]->ComputePay()) {
                 smallestIndex = j;
             }
         }
-        sorted.push_back(empList[smallestIndex]);
-        paySum += empList[smallestIndex]->ComputePay();
+        if (smallestIndex != i) {
+            std::swap(sorted[i], sorted[smallestIndex]);
+        }
+        paySum += sorted[i]->ComputePay(); 
     }
+
     float avg = paySum / sorted.size();
 
     if (descending)
@@ -157,9 +157,9 @@ int main()
     //wagie3.setName("Lajos");
     //wagie3.setHours(102);
     //wagie3.setWage(50);
-    //empList.push_back(&wagie);
     //empList.push_back(&wagie2);
     //empList.push_back(&wagie3);
+    //empList.push_back(&wagie);
 
     int choice;
     bool validChoice = true;
@@ -207,6 +207,9 @@ int main()
 
     cout << "Kilepes..." << endl;
 
+    for (auto emp : empList) {
+        delete emp;
+    }
 
     return 0;
 }

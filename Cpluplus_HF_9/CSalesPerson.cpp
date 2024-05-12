@@ -1,17 +1,17 @@
 //JI9J9A Füzi Bálint FELADAT9V1
-#include "CSalesEmployee.h"
+#include "CSalesPerson.h"
 #include <iostream>
 
 using namespace std;
 
-CSalesEmployee::CSalesEmployee()
+CSalesPerson::CSalesPerson()
 {
 }
 
-CSalesEmployee::CSalesEmployee(const std::string& name, float wage, float hours, float salesMade, float commission)
+CSalesPerson::CSalesPerson(const std::string& name, float wage, float hours, float salesMade, float commission)
     : CWageEmployee(name, wage, hours), m_fSalesMade(salesMade), m_fCommission(commission) {}
 
-void CSalesEmployee::Input() {
+void CSalesPerson::Input() {
     CWageEmployee::Input();
     cout << "Add meg az eladasok szamat: ";
     cin >> m_fSalesMade;
@@ -19,32 +19,32 @@ void CSalesEmployee::Input() {
     cin >> m_fCommission;
 }
 
-float CSalesEmployee::ComputePay() {
+float CSalesPerson::ComputePay() {
     return CWageEmployee::ComputePay() + m_fCommission * m_fSalesMade;
 }
 
-void CSalesEmployee::Display() {
+void CSalesPerson::Display() {
     CWageEmployee::Display();
     cout << "Eladasok: " << m_fSalesMade << endl;
     cout << "Jutalek: " << m_fCommission << endl;
 }
 
-void CSalesEmployee::setSalesMade(const float salesMade)
+void CSalesPerson::setSalesMade(const float salesMade)
 {
     m_fSalesMade = salesMade;
 }
 
-float CSalesEmployee::getSalesMade() const
+float CSalesPerson::getSalesMade() const
 {
     return m_fSalesMade;
 }
 
-void CSalesEmployee::setCommission(const float commission)
+void CSalesPerson::setCommission(const float commission)
 {
     m_fCommission = commission;
 }
 
-float CSalesEmployee::getCommission() const
+float CSalesPerson::getCommission() const
 {
     return m_fCommission;
 }
