@@ -4,6 +4,12 @@
 
 using namespace std;
 
+CWageEmployee::CWageEmployee()
+{
+}
+
+CWageEmployee::CWageEmployee(const std::string& name, float wage, float hours)
+    : CEmployee(name), m_fWage(wage), m_fHours(hours) {}
 
 void CWageEmployee::Input() {
     CEmployee::Input();

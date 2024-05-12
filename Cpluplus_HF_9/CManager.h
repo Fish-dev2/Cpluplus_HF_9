@@ -4,6 +4,8 @@
 
 class CManager : public CEmployee {
 public:
+    CManager();
+    CManager(const std::string& name, float weeklySalary);
     void Input() override;
     float ComputePay() override;
     void Display() override;

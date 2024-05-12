@@ -4,6 +4,8 @@
 
 class CWageEmployee : public CEmployee {
 public:
+    CWageEmployee();
+    CWageEmployee(const std::string& name, float wage, float hours);
     virtual ~CWageEmployee() {}
     void Input() override;
     float ComputePay() override;

@@ -4,6 +4,14 @@
 
 using namespace std;
 
+CManager::CManager()
+{
+}
+
+CManager::CManager(const std::string& name, float weeklySalary)
+    : CEmployee(name), m_fWeeklySalary(weeklySalary) {}
+
+
 void CManager::Input() {
     CEmployee::Input();
     cout << "Add meg a heti fizetest: ";

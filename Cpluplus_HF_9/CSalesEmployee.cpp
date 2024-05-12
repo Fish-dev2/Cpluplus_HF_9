@@ -4,6 +4,13 @@
 
 using namespace std;
 
+CSalesEmployee::CSalesEmployee()
+{
+}
+
+CSalesEmployee::CSalesEmployee(const std::string& name, float wage, float hours, float salesMade, float commission)
+    : CWageEmployee(name, wage, hours), m_fSalesMade(salesMade), m_fCommission(commission) {}
+
 void CSalesEmployee::Input() {
     CWageEmployee::Input();
     cout << "Add meg az eladasok szamat: ";

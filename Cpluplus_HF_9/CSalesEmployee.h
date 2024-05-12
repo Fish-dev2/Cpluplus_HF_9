@@ -4,6 +4,8 @@
 
 class CSalesEmployee : public CWageEmployee {
 public:
+    CSalesEmployee();
+    CSalesEmployee(const std::string& name, float wage, float hours, float salesMade, float commission);
     void Input() override;
     float ComputePay() override;
     void Display() override;

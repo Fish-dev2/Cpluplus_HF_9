@@ -26,7 +26,13 @@ void createEmployee(EmployeeList& empList) {
     cout << "3. Manager" << endl;
     cout << "Ird be a menupont szamat: ";
     cin >> choice;
-
+    if (cin.fail() || choice <1 || choice > 3)
+    {
+        cout << "Hibas valasztas. Letrehozas megszakitva." << endl;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        return;
+    }
     CEmployee* emp = nullptr;
     switch (choice) {
         case 1: {
@@ -41,12 +47,15 @@ void createEmployee(EmployeeList& empList) {
             emp = new CManager();
             break;
         }
-        default: {
-            cout << "Hibas valasztas. Letrehozas megszakitva." << endl;
-            return;
-        }
     }
     emp->Input();
+    if (cin.fail())
+    {
+        cout << "Hibas adatbevitel." << endl;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        return;
+    }
     empList.push_back(emp);
 }
 void listEmployees(const EmployeeList& empList) {
@@ -172,6 +181,7 @@ int main()
         else
         {
             cout << menuOptions[choice - 1] << "t valasztottad" << endl;
+            validChoice = true;
             switch (choice)
             {
             case 1:
